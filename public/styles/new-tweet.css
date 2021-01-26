@@ -23,6 +23,10 @@ textarea {
   resize:none;
 }
 
+textarea:focus {
+  outline: none;
+}
+
 footer {
   display: flex;
   flex-direction: row;
