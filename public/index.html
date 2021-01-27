@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 
 
     <!-- App CSS -->
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,7 +32,7 @@
       <span>tweeter</span> 
       <p><strong>Write</strong> a new tweet!</p>
     </nav>
-    <header>
+    <header class="pageHeader">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -56,6 +58,24 @@
           </div>
           </div>
         </form>
+      </section>
+      <br>
+      <section class="tweetsContainer">
+        <article class="article">
+          <header class="tweetHeader">
+            <i class="far fa-user"></i>
+            <p class="username">Maggie</p>
+        </header>
+          <p class=actualTweet>This is my first tweet!</p>
+          <footer class="tweetFooter">
+            <h6>10 days ago</h6>
+            <p>
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+            </p>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
