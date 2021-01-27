@@ -27,7 +27,7 @@ textarea:focus {
   outline: none;
 }
 
-footer {
+.button-counter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -42,4 +42,8 @@ button {
   font-size: 20px;
   border-color: #4056A1;
   border-style: none;
+}
+
+.addColour {
+  color: red;
 }
