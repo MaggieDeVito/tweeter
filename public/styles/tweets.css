@@ -5,16 +5,37 @@
   align-items: center;
   justify-content: center;
   width: 65%;
-  padding: 10px;
+  padding: 0 30px;
+  margin: 30px 0;
+}
+
+.tweetsContainer:hover {
+  box-shadow: 5px 10px #051f74;
+}
+
+.tweetsContainer:hover .userMention {
+  color: #051f74;
+  opacity: 1;
 }
 
 .article {
   width: 100%;
 }
 
+.userMention {
+  opacity: 0;
+}
+
 .tweetHeader {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-size: 35px;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .actualTweet {
