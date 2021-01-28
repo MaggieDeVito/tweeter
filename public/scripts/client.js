@@ -14,6 +14,12 @@ const renderTweets = function(tweets) {
 }
 
 const createTweetElement = function(tweet) {
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   
   let tweetElement = `
   <header class="tweet-header">
@@ -25,7 +31,7 @@ const createTweetElement = function(tweet) {
       <p>${tweet.user.handle}</p>
     </div>
   </header>
-    <p>${tweet.content.text}</p>
+    <p>${escape(tweet.content.text)}</p>
   <footer class="tweet-footer">
     <h6>${tweet.created_at}</h6>
     <p>
