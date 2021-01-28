@@ -7,7 +7,7 @@
 $(document).ready(function() {
 
 const renderTweets = function(tweets) {
-  const $container = $(".tweets-container")
+  const $container = $(".tweets-container").empty();
   for(let tweet of tweets) {
     $container.prepend(createTweetElement(tweet));
   }
@@ -52,7 +52,17 @@ $(".tweet-form").submit(function(event){
   } else if(value.length === 0) {
     alert("Your tweet is empty!")
   } else {
-  $.ajax({url: "/tweets", type: "post", data: formData})
+  $.ajax({
+    url: "/tweets", 
+    type: "post", 
+    data: formData
+  })
+  .then(()=>  {
+    return loadTweets(),
+    $("#tweet-text").val('')
+  })
+
+
   }
 })
 
@@ -60,11 +70,12 @@ const loadTweets = function() {
   $.ajax ({
     type: "get",
     url: "/tweets",
-    dataType: "json",
-    success: function(data) {
-      renderTweets(data);
-    }
+    dataType: "json"
+  }).then(function (results) {
+    renderTweets(results)
   })
+
+  
 }
 
 loadTweets();
