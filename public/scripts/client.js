@@ -4,24 +4,24 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-const renderTweets = function(tweets) {
-  const $container = $(".tweets-container").empty();
-  for(let tweet of tweets) {
-    $container.prepend(createTweetElement(tweet));
+  const renderTweets = function (tweets) {
+    const $container = $(".tweets-container").empty();
+    for (let tweet of tweets) {
+      $container.prepend(createTweetElement(tweet));
+    }
   }
-}
 
-const createTweetElement = function(tweet) {
+  const createTweetElement = function (tweet) {
 
-  const escape =  function(str) {
-    let div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-  
-  let tweetElement = `
+    const escape = function (str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    let tweetElement = `
   <header class="tweet-header">
     <div class="user-info">
       <img src="${tweet.user.avatars}">
@@ -42,49 +42,52 @@ const createTweetElement = function(tweet) {
   </footer>
 `
 
-  const $tweet = $(`<article>`);
-  $tweet.addClass("article");
-  const tweetArticle = $tweet.append(tweetElement);
-  return tweetArticle;
-}
+    const $tweet = $(`<article>`);
+    $tweet.addClass("article");
+    const tweetArticle = $tweet.append(tweetElement);
+    return tweetArticle;
+  }
 
-$(".tweet-form").submit(function(event){
-  event.preventDefault();
-  const formData = $(this).serialize();
-  const value = $("#tweet-text").val();
+  $(".tweet-form").submit(function (event) {
+    event.preventDefault();
+    const formData = $(this).serialize();
+    const value = $("#tweet-text").val();
 
-  if(value.length > 140) {
-    alert("Your tweet is too long!")
-  } else if(value.length === 0) {
-    alert("Your tweet is empty!")
-  } else {
-  $.ajax({
-    url: "/tweets", 
-    type: "post", 
-    data: formData
+    if (value.length > 140) {
+      $(".error-message").slideDown();
+      return;
+    }
+
+    if (value.length === 0) {
+      $(".other-error-message").slideDown();
+      return;
+    }
+
+    $.ajax({
+      url: "/tweets",
+      type: "post",
+      data: formData
+    })
+      .then(() => {
+        $(".counter").html('140');
+        return loadTweets(),
+          $("#tweet-text").val('')
+      })
   })
-  .then(()=>  {
-    return loadTweets(),
-    $("#tweet-text").val('')
-  })
+
+  const loadTweets = function () {
+    $.ajax({
+      type: "get",
+      url: "/tweets",
+      dataType: "json"
+    }).then(function (results) {
+      renderTweets(results)
+    })
 
 
   }
-})
 
-const loadTweets = function() {
-  $.ajax ({
-    type: "get",
-    url: "/tweets",
-    dataType: "json"
-  }).then(function (results) {
-    renderTweets(results)
-  })
-
-  
-}
-
-loadTweets();
+  loadTweets();
 
 })
 
