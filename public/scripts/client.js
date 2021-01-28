@@ -6,43 +6,6 @@
 
 $(document).ready(function() {
 
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-  "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-  "created_at": 1461116232227
-}
-
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const renderTweets = function(tweets) {
   const $container = $(".tweets-container")
   for(let tweet of tweets) {
@@ -74,14 +37,39 @@ const createTweetElement = function(tweet) {
 `
 
   const $tweet = $(`<article>`);
-
   $tweet.addClass("article");
-
   const tweetArticle = $tweet.append(tweetElement);
-
   return tweetArticle;
-
 }
 
-renderTweets(data);
+$(".tweet-form").submit(function(event){
+  event.preventDefault();
+  const formData = $(this).serialize();
+  
+  // if(formData.length > 140) {
+  //   return alert("Your tweet is too long!")
+  // }
+
+  // if(!forData) {
+  //   return alert("Your tweet is empty!")
+  // }
+
+  $.ajax({url: "/tweets", type: "post", data: formData})
 })
+
+const loadTweets = function() {
+  $.ajax ({
+    type: "get",
+    url: "/tweets",
+    dataType: "json",
+    success: function(data) {
+      renderTweets(data);
+    }
+  })
+}
+
+loadTweets();
+
+})
+
+
