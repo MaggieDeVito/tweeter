@@ -9,7 +9,7 @@ $(document).ready(function() {
 const renderTweets = function(tweets) {
   const $container = $(".tweets-container")
   for(let tweet of tweets) {
-    $container.append(createTweetElement(tweet));
+    $container.prepend(createTweetElement(tweet));
   }
 }
 
@@ -45,16 +45,15 @@ const createTweetElement = function(tweet) {
 $(".tweet-form").submit(function(event){
   event.preventDefault();
   const formData = $(this).serialize();
-  
-  // if(formData.length > 140) {
-  //   return alert("Your tweet is too long!")
-  // }
+  const value = $("#tweet-text").val();
 
-  // if(!forData) {
-  //   return alert("Your tweet is empty!")
-  // }
-
+  if(value.length > 140) {
+    alert("Your tweet is too long!")
+  } else if(value.length === 0) {
+    alert("Your tweet is empty!")
+  } else {
   $.ajax({url: "/tweets", type: "post", data: formData})
+  }
 })
 
 const loadTweets = function() {
