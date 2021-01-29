@@ -36,28 +36,30 @@ textarea:focus {
 button {
   display: flex;
   align-items: center;
-  background-color: #4056A1;
+  background-color: #684A52;
   color: white;
   font-family: 'Bungee', sans-serif;
   font-size: 20px;
-  border-color: #4056A1;
+  border-color: #684A52;
   border-style: none;
 }
 
 .addColour {
-  color: red;
+  color: #78C091;
 }
 
 .error-message {
-  border: 1px solid red;
-  color: red;
+  border: 1px solid #78C091;
+  color: #78C091;
   display: none;
+  padding: 5px;
 }
 
 .other-error-message{
-  border: 1px solid red;
-  color: red;
+  border: 1px solid#78C091;
+  color: #78C091;
   display: none;
+  padding: 5px;
 }
 
 @media only screen and (min-width: 1024px) {

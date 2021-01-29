@@ -3,9 +3,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  color: #FFFFFF;
+  color: #684A52;
   padding: 1.5em;
-  background-color: #F0E68C;
+  background-color: #FFF3F0;
   background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 }
 span {
@@ -21,7 +21,8 @@ p {
 
   nav {
     height: 120px;
-    background-color: #4056A1;
+    background-color: #684A52;
+    color: #FFFFFF;
     position: fixed;
     top: 0;
     background-image: none;

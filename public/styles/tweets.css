@@ -9,7 +9,7 @@
 }
 
 .article:hover .user-mention {
-  color: #4056A1;
+  color: #684A52;
   opacity: 1;
 }
 
@@ -51,6 +51,6 @@
 }
 
 .article:hover .icons {
-  color: #4056A1;
+  color: #684A52;
   opacity: 1;
 }
