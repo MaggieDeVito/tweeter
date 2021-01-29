@@ -2,15 +2,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 120px;
   width: 100%;
-  background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
-  position: fixed;
-  top: 0;
+  background-color: #F0E68C;
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 }
-
 span {
   font-family: 'Bungee', sans-serif;
 }
@@ -18,4 +15,15 @@ span {
 p {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 20px;
+}
+
+@media only screen and (min-width: 1024px) {
+
+  nav {
+    height: 120px;
+    background-color: #4056A1;
+    position: fixed;
+    top: 0;
+    background-image: none;
+  }
 }

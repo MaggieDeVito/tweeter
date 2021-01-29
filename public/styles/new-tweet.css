@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  width: 100%;
+  margin-top: 160px;
 }
 
 form {
@@ -57,4 +58,10 @@ button {
   border: 1px solid red;
   color: red;
   display: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    margin-top: 160px;
+  }
 }

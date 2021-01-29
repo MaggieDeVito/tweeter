@@ -1,8 +1,8 @@
 /*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+* http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+* https://css-tricks.com/international-box-sizing-awareness-day/
+* Do not modify these two selectors, please
+*/
 html {
   box-sizing: border-box;
 }
@@ -11,30 +11,47 @@ html {
 }
 
 /*
- * Global layout stuff
- */
-nav span {
-  font-family: 'Bungee', sans-serif;
+* Global layout stuff
+*/
+  
+ nav span {
+   font-family: 'Bungee', sans-serif;
+  }
+
+ body {
+   display: flex;
+   flex-direction: column;
+   color: #545149;
+   background-color: #f4f1ec;
+   font-size: 24px;
+   font-family: 'Source Sans Pro', sans-serif;
+   align-items: center;
  }
+ 
+ .container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   background-color: #f4f1ec;
+ }
+
+
+ @media only screen and (min-width: 1024px) {
 
 body {
   display: flex;
-  flex-direction: column;
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  background-color: #f4f1ec;
+  align-items: flex-start;
+  width: 100%;
 }
+ }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
