@@ -12,6 +12,15 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 5. Have fun!
 
+## Screenshots
+
+!["Screenshot of desktop tweeter"](https://github.com/MaggieDeVito/tweeter/blob/master/docs/desktop-tweeter.png?raw=true)
+!["Screenshot of error message](https://github.com/MaggieDeVito/tweeter/blob/master/docs/error-tweeter.png?raw=true)
+!["Screenshot of tweet when hovered"](https://github.com/MaggieDeVito/tweeter/blob/master/docs/hover-tweet.png?raw=true)
+!["Screenshot of tablet tweeter"](https://github.com/MaggieDeVito/tweeter/blob/master/docs/tablet-tweeter.png?raw=true)
+
+
+
 ## Dependencies
 
 - Express
