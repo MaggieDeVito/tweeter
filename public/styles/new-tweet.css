@@ -48,14 +48,14 @@ button {
   color: #78C091;
 }
 
-.error-message {
+.error-length {
   border: 1px solid #78C091;
   color: #78C091;
   display: none;
   padding: 5px;
 }
 
-.other-error-message{
+.error-empty{
   border: 1px solid#78C091;
   color: #78C091;
   display: none;

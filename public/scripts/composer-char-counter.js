@@ -11,8 +11,8 @@ $(document).ready(function () {
       counter.addClass("addColour")
     } else {
       counter.removeClass("addColour")
-      $(".error-message").slideUp()
-      $(".other-error-message").slideUp()
+      $(".error-length").slideUp()
+      $(".error-empty").slideUp()
     }
   })
 });

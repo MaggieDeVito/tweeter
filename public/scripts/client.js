@@ -58,12 +58,12 @@ $(document).ready(function () {
     const value = $("#tweet-text").val();
 
     if (value.length > 140) {
-      $(".error-message").slideDown();
+      $(".error-length").slideDown();
       return;
     }
 
     if (value.length === 0) {
-      $(".other-error-message").slideDown();
+      $(".error-empty").slideDown();
       return;
     }
 
