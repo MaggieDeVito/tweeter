@@ -8,7 +8,7 @@
   background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
 }
 
-@media only screen and (min-width: 1024px) {
+@media only  and (min-width: 1024px) {
   .pageHeader {
     margin-top: 160px;
   }

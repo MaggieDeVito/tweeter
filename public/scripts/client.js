@@ -11,7 +11,7 @@ $(document).ready(function () {
     for (let tweet of tweets) {
       $container.prepend(createTweetElement(tweet));
     }
-  }
+  };
 
   const createTweetElement = function (tweet) {
 
@@ -19,11 +19,11 @@ $(document).ready(function () {
       let div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
-    }
+    };
 
-    const time = new Date(tweet.created_at)
-    const currentTime = Date.now()
-    const dayDif = Math.floor((currentTime - time) / 1000 / 60 / 60 / 24)
+    const time = new Date(tweet.created_at);
+    const currentTime = Date.now();
+    const dayDif = Math.floor((currentTime - time) / 1000 / 60 / 60 / 24);
 
     let tweetElement = `
   <header class="tweet-header">
@@ -44,13 +44,13 @@ $(document).ready(function () {
       <i class="fas fa-heart"></i>
     </p>
   </footer>
-`
+`;
 
     const $tweet = $(`<article>`);
     $tweet.addClass("article");
     const tweetArticle = $tweet.append(tweetElement);
     return tweetArticle;
-  }
+  };
 
   $(".tweet-form").submit(function (event) {
     event.preventDefault();
@@ -71,13 +71,12 @@ $(document).ready(function () {
       url: "/tweets",
       type: "post",
       data: formData
-    })
-      .then(() => {
-        $(".counter").html('140');
-        return loadTweets(),
-          $("#tweet-text").val('')
-      })
-  })
+    }).then(() => {
+      $(".counter").html('140');
+      $("#tweet-text").val('');
+      return loadTweets();
+    });
+  });
 
   const loadTweets = function () {
     $.ajax({
@@ -85,14 +84,12 @@ $(document).ready(function () {
       url: "/tweets",
       dataType: "json"
     }).then(function (results) {
-      renderTweets(results)
-    })
-
-
-  }
+      renderTweets(results);
+    });
+  };
 
   loadTweets();
 
-})
+});
 
 

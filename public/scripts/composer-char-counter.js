@@ -8,11 +8,11 @@ $(document).ready(function () {
     counter.html(charsLeft);
 
     if (charsLeft < 0) {
-      counter.addClass("addColour")
+      counter.addClass("addColour");
     } else {
-      counter.removeClass("addColour")
-      $(".error-length").slideUp()
-      $(".error-empty").slideUp()
+      counter.removeClass("addColour");
+      $(".error-length").slideUp();
+      $(".error-empty").slideUp();
     }
-  })
+  });
 });
