@@ -21,6 +21,10 @@ $(document).ready(function () {
       return div.innerHTML;
     }
 
+    const time = new Date(tweet.created_at)
+    const currentTime = Date.now()
+    const dayDif = Math.floor((currentTime - time) / 1000 / 60 / 60 / 24)
+
     let tweetElement = `
   <header class="tweet-header">
     <div class="user-info">
@@ -33,7 +37,7 @@ $(document).ready(function () {
   </header>
     <p>${escape(tweet.content.text)}</p>
   <footer class="tweet-footer">
-    <h6>${tweet.created_at}</h6>
+    <h6>${dayDif} days ago</h6>
     <p class="icons">
       <i class="fas fa-flag"></i>
       <i class="fas fa-retweet"></i>
