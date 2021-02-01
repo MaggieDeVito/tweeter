@@ -8,9 +8,9 @@ $(document).ready(function () {
     counter.html(charsLeft);
 
     if (charsLeft < 0) {
-      counter.addClass("addColour");
+      counter.addClass("addColour"); // adding color red when characters left is less than 0
     } else {
-      counter.removeClass("addColour");
+      counter.removeClass("addColour"); // removing color red when characters are between 140-0, along with hiding the error messages.
       $(".error-length").slideUp();
       $(".error-empty").slideUp();
     }

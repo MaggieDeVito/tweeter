@@ -9,23 +9,23 @@ $(document).ready(function () {
   const renderTweets = function (tweets) {
     const $container = $(".tweets-container").empty();
     for (let tweet of tweets) {
-      $container.prepend(createTweetElement(tweet));
+      $container.prepend(createTweetElement(tweet)); //prepending new tweet to the tweet container
     }
   };
 
   const createTweetElement = function (tweet) {
 
     const escape = function (str) {
-      let div = document.createElement('div');
+      const div = document.createElement('div');
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     };
 
     const time = new Date(tweet.created_at);
     const currentTime = Date.now();
-    const dayDif = Math.floor((currentTime - time) / 1000 / 60 / 60 / 24);
+    const dayDif = Math.floor((currentTime - time) / 1000 / 60 / 60 / 24); // making the time into days from Unix time
 
-    let tweetElement = `
+    const tweetElement = ` 
   <header class="tweet-header">
     <div class="user-info">
       <img src="${tweet.user.avatars}">
@@ -44,25 +44,25 @@ $(document).ready(function () {
       <i class="fas fa-heart"></i>
     </p>
   </footer>
-`;
+`; // the outline for all tweet containers
 
     const $tweet = $(`<article>`);
     $tweet.addClass("article");
     const tweetArticle = $tweet.append(tweetElement);
-    return tweetArticle;
+    return tweetArticle; // appending the outline to the article class
   };
 
   $(".tweet-form").submit(function (event) {
-    event.preventDefault();
+    event.preventDefault(); // stops the browser from refreshing (its default)
     const formData = $(this).serialize();
     const value = $("#tweet-text").val();
 
     if (value.length > 140) {
-      $(".error-length").slideDown();
+      $(".error-length").slideDown(); // error for too many characters
       return;
     }
 
-    if (value.length === 0) {
+    if (value.length === 0) { // error for no characters
       $(".error-empty").slideDown();
       return;
     }
@@ -72,9 +72,9 @@ $(document).ready(function () {
       type: "post",
       data: formData
     }).then(() => {
-      $(".counter").html('140');
-      $("#tweet-text").val('');
-      return loadTweets();
+      $(".counter").html('140'); // resetting counter to 140
+      $("#tweet-text").val(''); // clearing the tweetbox 
+      return loadTweets(); // reloading the tweets without actually refreshing the browser
     });
   });
 
@@ -84,7 +84,7 @@ $(document).ready(function () {
       url: "/tweets",
       dataType: "json"
     }).then(function (results) {
-      renderTweets(results);
+      renderTweets(results); 
     });
   };
 

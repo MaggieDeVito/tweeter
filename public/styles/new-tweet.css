@@ -45,19 +45,19 @@ button {
 }
 
 .addColour {
-  color: #78C091;
+  color: red;
 }
 
 .error-length {
-  border: 1px solid #78C091;
-  color: #78C091;
+  border: 1px solid red;
+  color: red;
   display: none;
   padding: 5px;
 }
 
 .error-empty{
-  border: 1px solid#78C091;
-  color: #78C091;
+  border: 1px solid red;
+  color: red;
   display: none;
   padding: 5px;
 }
